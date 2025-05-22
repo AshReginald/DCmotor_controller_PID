@@ -1,40 +1,40 @@
-# Tiếng Việt 
-# Mô phỏng và Điều khiển Vị trí – Vận tốc Động cơ DC bằng MATLAB/Simulink
-
-Dự án này trình bày quá trình **mô hình hóa**, **thiết kế điều khiển** và **mô phỏng hệ thống truyền động dùng động cơ điện một chiều (DC)** trong môi trường MATLAB/Simulink. Mô hình bao gồm xây dựng hàm truyền, thiết kế bộ điều khiển PID và kiểm tra hệ thống trong hai chế độ: điều khiển vị trí và điều khiển vận tốc.
+# 🔧 MÔ PHỎNG VÀ ĐIỀU KHIỂN VỊ TRÍ – VẬN TỐC ĐỘNG CƠ DC BẰNG MATLAB/SIMULINK  
+**DC Motor Position and Speed Control using MATLAB/Simulink**
 
 ---
 
-## 📁 Tệp trong dự án
+## 🇻🇳 GIỚI THIỆU (TIẾNG VIỆT)
 
-- **`DC_transfer_fnc.m`**  
-  File script MATLAB để tạo hàm truyền động cơ DC dựa trên các thông số kỹ thuật thực tế.
+Dự án này trình bày quá trình **mô hình hóa**, **thiết kế điều khiển PID**, và **mô phỏng hệ thống truyền động sử dụng động cơ điện một chiều (DC)** trong môi trường MATLAB/Simulink. Mục tiêu là xây dựng một hệ thống điều khiển vòng kín có thể điều chỉnh chính xác **tốc độ quay** và **vị trí góc** của trục động cơ.
 
-- **`DC_sim.slx`**  
-  File mô phỏng Simulink, bao gồm:
-  - Mô hình điều khiển vị trí sử dụng PID vòng kín.
-  - Mô hình điều khiển vận tốc sử dụng PID vòng kín.
+Mô hình được xây dựng từ hàm truyền của động cơ, sử dụng các thông số thực tế của động cơ DC 3.70kW – 240V – 1750rpm. Hai chế độ điều khiển được mô phỏng:
+- Điều khiển vị trí
+- Điều khiển vận tốc
 
 ---
 
-## ⚙️ Thông số động cơ DC
+## 📁 CÁC TỆP TRONG DỰ ÁN
 
-Sử dụng thông số từ động cơ 3.70kW, 240V, 1750 vòng/phút:
+- `DC_transfer_fnc.m` – Script MATLAB định nghĩa hàm truyền của động cơ DC.
+- `DC_sim.slx` – Mô hình Simulink gồm:
+  - PID điều khiển vị trí
+  - PID điều khiển vận tốc
+
+---
+
+## ⚙️ THÔNG SỐ ĐỘNG CƠ
 
 ```matlab
 Ra = 11.4;        % Điện trở phần ứng (Ohm)
-La = 0.1214;      % Độ tự cảm phần ứng (H)
+La = 0.1214;      % Tự cảm phần ứng (H)
 Jm = 0.02215;     % Mô-men quán tính (kg·m^2)
 Dm = 0.002953;    % Hệ số ma sát nhớt (N·m·s)
 Kt = 1.28;        % Hằng số mô-men (N·m/A)
 Kb = 0.0045;      % Hằng số suất điện động ngược (V·s/rad)
 
-% Hàm truyền từ điện áp đầu vào đến vị trí góc
 G = tf(Kt,[La*Jm, (Ra*Jm + La*Dm), (Ra*Dm + Kb*Kt), 0]);
 
 
-
-# English
 # DC Motor Position and Speed Control using MATLAB/Simulink
 
 This project demonstrates the modeling, simulation, and control of a DC motor's position and speed using MATLAB and Simulink. The system includes transfer function modeling, PID controller design, and closed-loop simulation.
